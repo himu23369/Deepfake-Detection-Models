@@ -1,6 +1,6 @@
 # Deepfake Detection Model
 
-This repository contains a deep learning-based model for detecting deepfake images. The model uses a combination of multiple pre-trained models, aggregated to provide robust and accurate predictions. The goal is to detect whether an image is real or fake.
+This repository contains a deep learning-based model for detecting deepfake multimedia. The model uses a combination of multiple pre-trained models, aggregated to provide robust and accurate predictions. The goal is to detect whether the file uploaded is real or fake.
 
  ![flowchart](./images/flow.png)
 
