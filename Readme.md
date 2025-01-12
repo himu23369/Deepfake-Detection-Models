@@ -5,16 +5,17 @@ This repository contains a deep learning-based model for detecting deepfake imag
  ![flowchart](./images/flow.png)
 
 ## Overview
+Deepfakes are a form of synthetic media created using artificial intelligence, especially deep learning techniques like **Generative Adversarial Networks (GANs)**. They allow for the creation of highly realistic but altered content, such as videos, images, or audio, that can make it seem like someone said or did something they never actually did.
 
-This model leverages deep learning techniques to classify images as real or fake. By using multiple pre-trained models and an aggregation method for predictions, it ensures accurate and reliable results.
+This model leverages deep learning techniques to classify images, audio and videos as real or fake. By using multiple pre-trained models and an aggregation method for predictions, it ensures accurate and reliable results.
 
-**Key Features:**
-- **Multiple Model Approaches:** Utilizes diverse pre-trained models for enhanced performance.
-- **Prediction Voting System:** Aggregates predictions from multiple models to improve accuracy.
-- **Face Detection:** Uses OpenCV's Haar Cascade to focus the model’s attention on the face area in the image.
-- **LIME Integration:** Provides an explanation of model predictions by visualizing which parts of the image contributed to the decision.
+## Key Features
 
-  ![compare](./images/comparison.png)
+- **Image Detection:** Leverages transfer learning with advanced base models such as XceptionV3, InceptionV3, ResNet, and DenseNet to extract and identify complex image features. Ensemble methods are employed to combine predictions from these models, effectively reducing bias toward specific classes and improving accuracy.
+
+- **Video Detection:** Processes video data by extracting one frame per second. Each extracted frame is fed into the image detection model, and a voting mechanism is applied to aggregate the results across frames, ensuring a reliable final prediction.
+
+- **Audio Detection:** Converts audio data into mel spectrograms, enabling the model to analyze time-frequency features. These spectrograms are processed by a Convolutional Neural Network (CNN) to detect unique patterns indicative of manipulated or synthetic audio content.
 
 ## Models  
 
@@ -29,6 +30,19 @@ The model was trained using the following datasets:
 - [In the Wild (Audio Deepfake)](https://www.kaggle.com/datasets/abdallamohamed312/in-the-wild-audio-deepfake)  
 
 These datasets provided the images necessary to train and evaluate the deepfake detection models.
+
+## Pre-trained Models for Deepfake Detection
+
+You can access the pre-trained models for deepfake detection on Kaggle: [Deepfake Detection Model](https://www.kaggle.com/models/aestroe/deepfake-detection)
+
+## Kaggle Notebooks
+
+Here are some Kaggle notebooks related to deepfake detection:
+
+- [DeepDetect](https://www.kaggle.com/code/aestroe/deepdetect)
+- [Audio Detect](https://www.kaggle.com/code/aestroe/audio-detect)
+
+These notebooks show how to run and test the models for real-time predictions, including image, video, and audio deepfake detection.
 
 ## Installation
 
@@ -66,22 +80,36 @@ Before making predictions, the image goes through several preprocessing steps:
 ### 3. LIME Integration for Model Explanations
 
 LIME (Local Interpretable Model-Agnostic Explanations) helps explain which parts of the image contributed to the prediction. The explanation helps visualize how the model makes its decisions by highlighting key regions.
+ 
+<img src="./images/comparison.png" alt="Result" width="500"/>
 
-![lime1](./images/lime_explanation_boundaries.png)
-![lime2](./images/lime_explanation_green_red.png)
+## Evaluating the Model Performance
 
-### 4. Evaluating the Model Performance
+The model's performance is assessed using the following metrics:
 
-After training the model, you can evaluate its performance using accuracy, F1 score, ROC curve, and AUC:
-![Table](./images/Table.png)
+- Accuracy: Measures overall correctness.
+- F1 Score: Balances precision and recall.
 
-**Input/Output**
+<img src="./images/Table.png" alt="Result" width="500"/>
+
+## Input/Output
 
 * **Input:** Image File: The system accepts an image file in JPG, PNG, or other common formats.
 * **Output:**
     * **Prediction:** The output will indicate whether the image is real or fake.
     * **Confidence Scores:** The output also provides the confidence levels for both real and fake predictions.
-![Result](./images/website_upload.png)
+
+<img src="./images/website_upload.png" alt="Result" width="400"/>
  
+## Contributions
+Contributions are welcome! If you would like to improve the model or documentation:
+
+- Fork the repository.
+- Make your changes.
+- Submit a pull request with a detailed description.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
