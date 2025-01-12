@@ -2,7 +2,7 @@
 
 This repository contains a deep learning-based model for detecting deepfake images. The model uses a combination of multiple pre-trained models, aggregated to provide robust and accurate predictions. The goal is to detect whether an image is real or fake.
 
- ![flowchart](classification-model\images\flow.png)
+ ![flowchart](./images/flow.png)
 
 ## Overview
 
@@ -14,7 +14,7 @@ This model leverages deep learning techniques to classify images as real or fake
 - **Face Detection:** Uses OpenCV's Haar Cascade to focus the model’s attention on the face area in the image.
 - **LIME Integration:** Provides an explanation of model predictions by visualizing which parts of the image contributed to the decision.
 
-  ![compare](classification-model\images\comparison.png)
+  ![compare](./images/comparison.png)
 
 ## Models  
 
@@ -67,13 +67,13 @@ Before making predictions, the image goes through several preprocessing steps:
 
 LIME (Local Interpretable Model-Agnostic Explanations) helps explain which parts of the image contributed to the prediction. The explanation helps visualize how the model makes its decisions by highlighting key regions.
 
-![lime1](classification-model\images\lime_explanation_boundaries.png)
-![lime2](classification-model\images\lime_explanation_green_red.png)
+![lime1](./images/lime_explanation_boundaries.png)
+![lime2](./images/lime_explanation_green_red.png)
 
 ### 4. Evaluating the Model Performance
 
 After training the model, you can evaluate its performance using accuracy, F1 score, ROC curve, and AUC:
-![Table](classification-model\images\Table.png)
+![Table](./images/Table.png)
 
 **Input/Output**
 
@@ -81,7 +81,7 @@ After training the model, you can evaluate its performance using accuracy, F1 sc
 * **Output:**
     * **Prediction:** The output will indicate whether the image is real or fake.
     * **Confidence Scores:** The output also provides the confidence levels for both real and fake predictions.
-![Result](classification-model\images\website_upload.png)
+![Result](./images/website_upload.png)
  
 
 
